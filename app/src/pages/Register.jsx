@@ -30,42 +30,40 @@ export default function Register() {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: "0 auto", padding: "2rem" }}>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: "1rem" }}>
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            style={{ width: "100%", padding: "0.5rem", marginTop: "0.25rem" }}
-          />
-        </div>
-        <div style={{ marginBottom: "1rem" }}>
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            style={{ width: "100%", padding: "0.5rem", marginTop: "0.25rem" }}
-          />
-        </div>
-        <button
-          type="submit"
-          disabled={loading}
-          style={{ padding: "0.75rem 1rem" }}
-        >
-          {loading ? "Registering..." : "Register"}
-        </button>
-      </form>
-      <p style={{ marginTop: "1rem" }}>
-        Already have an account? <Link to="/login">Login</Link>
-      </p>
+    <div className="auth-shell">
+      <div className="auth-card">
+        <p className="eyebrow">Create account</p>
+        <h1>Start your analysis</h1>
+        <p className="auth-copy">Register to upload your CV and receive tailored apprenticeship feedback.</p>
+        <form onSubmit={handleSubmit}>
+          <div className="field-group">
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="field-group">
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="primary-button" disabled={loading}>
+            {loading ? "Registering..." : "Register"}
+          </button>
+        </form>
+        <p className="auth-footnote">
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
+      </div>
     </div>
   );
 }
